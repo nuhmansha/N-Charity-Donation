@@ -1,15 +1,18 @@
-import React from "react";
-import Navbar from "../../Components/Common/Navbar";
+import React, { useState } from "react";
 import Image_1 from "../../assets/images/childrens-charity-challanges.png";
-import Footer from "../../Components/Common/Footer";
 import Causes from "./Causes/Causes";
 import Collaboration from "../../Components/Common/Collaboration";
-import CauseCart from "./Causes/CauseCart";
+import { useNavigate } from "react-router-dom";
 
 const UserHome = () => {
+  const navigate = useNavigate()
+
+  const handleViewMore=()=>{
+    navigate("/causes")
+  }
+  
   return (
-    <div className="relative bg-white w-full">
-      {/* <Navbar /> */}
+    <div className="relative bg-white">
       <div className="mt-20 container mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center">
         <div className="relative text-center md:text-left md:w-2/3">
           <div
@@ -34,7 +37,7 @@ const UserHome = () => {
             <img
               src={Image_1}
               alt="Child"
-              className="w-full h-full object-cover animate-fadeIn "
+              className="w-full h-full object-cover animate-fadeIn"
             />
           </div>
           <div
@@ -48,8 +51,8 @@ const UserHome = () => {
         </div>
       </div>
 
-      <h1 className="mt-10 text-4xl  md:text-4xl text-black font-bold flex justify-center">
-        how could you help?
+      <h1 className="mt-10 text-4xl md:text-4xl text-black font-bold flex justify-center">
+        How could you help?
       </h1>
 
       <div className="mt-20 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-8">
@@ -95,8 +98,18 @@ const UserHome = () => {
 
       <Collaboration />
 
-      {/* <Causes/> */}
-    <CauseCart  />
+      <h2 className="mt-10 text-3xl text-black font-bold flex justify-center">Our  <span className="text-yellow-400">Causes</span></h2>
+      <div className=" mt-20 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-around gap-4">
+        <Causes limit={4} />
+      </div>
+      <div className="flex justify-center mt-10">
+        <button
+          onClick={handleViewMore}
+          className="mt-4 bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600"
+        >
+          View More
+        </button>
+      </div>
     </div>
   );
 };
