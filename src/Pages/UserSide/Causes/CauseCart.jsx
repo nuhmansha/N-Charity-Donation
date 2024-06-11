@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CauseCard = ({ cause }) => {
-  console.log(cause);
+  console.log(cause,'123');
   return (
     <div className="mt-10 flex flex-col bg-white shadow-md rounded-lg overflow-hidden max-w-sm mx-auto transform transition duration-500 hover:scale-105 hover:shadow-2xl">
       <Link to={`/causes/${cause.id}`} className="flex-shrink-0">

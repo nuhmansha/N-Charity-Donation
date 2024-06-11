@@ -6,6 +6,8 @@ import Pagination from "../../../Components/Common/Pagination";
 
 const Causes = ({ limit }) => {
   const location = useLocation();
+
+  // example cause details 
   const causeData = [
     {
       id: 1,
@@ -105,7 +107,7 @@ const Causes = ({ limit }) => {
       rise: "$5000",
       toGo: "$2000",
       description: "Description 2",
-      author: "Eve",
+      author: "jack",
     },
 
     // Add more causes as needed

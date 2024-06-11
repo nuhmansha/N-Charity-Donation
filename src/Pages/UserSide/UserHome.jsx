@@ -3,14 +3,15 @@ import Image_1 from "../../assets/images/childrens-charity-challanges.png";
 import Causes from "./Causes/Causes";
 import Collaboration from "../../Components/Common/Collaboration";
 import { useNavigate } from "react-router-dom";
+import BannerCause from "../../Components/Common/BannerCause";
 
 const UserHome = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const handleViewMore=()=>{
-    navigate("/causes")
-  }
-  
+  const handleViewMore = () => {
+    navigate("/causes");
+  };
+
   return (
     <div className="relative bg-white">
       <div className="mt-20 container mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center">
@@ -98,7 +99,9 @@ const UserHome = () => {
 
       <Collaboration />
 
-      <h2 className="mt-10 text-3xl text-black font-bold flex justify-center">Our  <span className="text-yellow-400">Causes</span></h2>
+      <h2 className="mt-10 text-3xl text-black font-bold flex justify-center">
+        Our <span className="text-yellow-400">Causes</span>
+      </h2>
       <div className=" mt-20 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-around gap-4">
         <Causes limit={4} />
       </div>
@@ -110,6 +113,7 @@ const UserHome = () => {
           View More
         </button>
       </div>
+      <BannerCause />
     </div>
   );
 };
