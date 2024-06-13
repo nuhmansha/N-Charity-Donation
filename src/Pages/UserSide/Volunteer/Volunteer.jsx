@@ -1,4 +1,5 @@
 import React from "react";
+import StatusSection from "../../../Components/Common/StatusSection";
 
 // import Navbar from '../../Components/Common/Navbar';
 
@@ -39,20 +40,8 @@ function Volunteer() {
         </button>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-around items-center mt-24 space-y-6 md:space-y-0 md:space-x-6">
-        <div className="text-center">
-          <p className="text-2xl font-bold">520k</p>
-          <p className="text-gray-600">Poor People</p>
-        </div>
-        <div className="text-center">
-          <p className="text-2xl font-bold">842M</p>
-          <p className="text-gray-600">Fund Rise</p>
-        </div>
-        <div className="text-center">
-          <p className="text-2xl font-bold">24k</p>
-          <p className="text-gray-600">Active Member</p>
-        </div>
-      </div>
+      
+      <StatusSection/>
     </div>
   );
 }

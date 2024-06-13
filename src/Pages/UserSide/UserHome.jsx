@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import BannerCause from "../../Components/Common/BannerCause";
 import EventPage from "./CharityEvent/EventPage";
 import { Link } from "react-router-dom";
+import StatusSection from "../../Components/Common/StatusSection";
 
 const UserHome = () => {
   const navigate = useNavigate();
@@ -144,6 +145,8 @@ const UserHome = () => {
           </div>
         </div>
       </div>
+     
+      <StatusSection/>
     </div>
   );
 };
