@@ -4,6 +4,8 @@ import Causes from "./Causes/Causes";
 import Collaboration from "../../Components/Common/Collaboration";
 import { useNavigate } from "react-router-dom";
 import BannerCause from "../../Components/Common/BannerCause";
+import EventPage from "./CharityEvent/EventPage";
+import { Link } from "react-router-dom";
 
 const UserHome = () => {
   const navigate = useNavigate();
@@ -114,6 +116,34 @@ const UserHome = () => {
         </button>
       </div>
       <BannerCause />
+      {/* *******************************  */}
+      {/* EVENTS PAGE  */}
+
+      <div className="mt-20 container mx-auto p-6">
+        <h2 className="mt-10 text-3xl text-yellow-400 font-bold flex justify-center">
+          Our <span className="text-black">Events</span>
+        </h2>
+        <div className="flex flex-col md:flex-row lg:space-x-6 items-center">
+          <div className="mb-4 text-center flex flex-col gap-3 ">
+            <h2 className="text-3xl font-bold">
+              <span className="text-yellow-400">Multiple Event </span>
+              <span className="text-black"> &</span>{" "}
+              <span className="text-blue-500">Conference</span>
+            </h2>
+            <p className="text-gray-600  font-semibold">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </p>
+            <button className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-black w-full">
+              <Link to="/events">View All Events</Link>
+            </button>
+          </div>
+
+          <div className="w-full md:w-2/3">
+            <EventPage limit={2} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

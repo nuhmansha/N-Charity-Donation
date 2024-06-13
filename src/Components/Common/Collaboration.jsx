@@ -24,7 +24,7 @@ import React from 'react'
           <div className="flex flex-col md:flex-row items-center animate-fadeIn">
             <p className="mr-4 mb-4 md:mb-0">Need your simple</p>
             <p className="mr-4">help for save children.</p>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <button className="bg-blue-500 mt-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
               Donate Now
             </button>
           </div>
