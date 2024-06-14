@@ -7,6 +7,7 @@ import BannerCause from "../../Components/Common/BannerCause";
 import EventPage from "./CharityEvent/EventPage";
 import { Link } from "react-router-dom";
 import StatusSection from "../../Components/Common/StatusSection";
+import BlogPage from "./Blog/BlogPage";
 
 const UserHome = () => {
   const navigate = useNavigate();
@@ -145,8 +146,16 @@ const UserHome = () => {
           </div>
         </div>
       </div>
-     
-      <StatusSection/>
+
+      <StatusSection />
+
+      {/* BLOG PAGE  */}
+      <BlogPage limit={3} />
+      <div className="flex justify-center">
+        <button className="mt-10 bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-black w-2/1">
+          <Link to="/blogs">View All blogs</Link>
+        </button>
+      </div>
     </div>
   );
 };
