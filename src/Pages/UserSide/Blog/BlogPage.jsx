@@ -9,7 +9,7 @@ const blogsData = [
     date: '25 February',
     category: 'Water',
     image: BannerImage2 ,
-    title: 'Children Education Needs For Well The World.',
+    title: 'Children Education Needs For The World.',
     description: 'Lorem Ipsum is simply dummy text of the industry\'s since the unknown.',
     author: 'Adam',
   },

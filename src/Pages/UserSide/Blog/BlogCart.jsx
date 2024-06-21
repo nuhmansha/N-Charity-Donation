@@ -23,19 +23,22 @@ const BlogCart = ({ blog }) => {
         </div>
       </div>
       <div className="p-4">
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex justify-between items-center mb-2">
           <span className="bg-purple-200 text-purple-600 text-xs font-semibold px-2 py-1 rounded"></span>
-          <h3 className="font-semibold text-lg">{blog.title}</h3>
+          {/* <h3 className="font-semibold text-lg">{blog.title}</h3> */}
           <FaShare
             className="text-gray-500 hover:text-gray-700 cursor-pointer"
             onClick={() => setShowShareOptions(!showShareOptions)}
           />
+          {showShareOptions && <ShareOptions type="blog" id={blog.id} />}
         </div>
+        <h3 className="font-semibold text-lg mb-2">{blog.title}</h3>
         <p className="text-gray-600 text-sm mb-4">{blog.description}</p>
-        {showShareOptions && <ShareOptions type="blog" id={blog.id} />}
         <div className="flex items-center justify-between">
-          <span className="text-sm text-gray-800">{blog.author}</span>
-          <button className="text-purple-600 border border-purple-600 rounded px-4 py-2 text-sm hover:bg-purple-600 hover:text-white transition">
+          <span className="text-sm text-gray-800 hover:underline">
+            {blog.author}
+          </span>
+          <button className="text-purple-600 border border-purple-600 rounded px-3 py-1 text-sm hover:bg-purple-600 hover:text-white transition">
             View Details
           </button>
         </div>
