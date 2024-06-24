@@ -6,7 +6,7 @@ import About from "../Pages/UserSide/About";
 import Navbar from "../Components/Common/Navbar";
 import Footer from "../Components/Common/Footer";
 import Causes from "../Pages/UserSide/Causes/Causes";
-import VolunteerPage from "../Pages/UserSide/Volunteer/VolunteerPage";
+import VolunteerPage from "../Pages/Agent/Volunteer/VolunteerPage";
 import BlogPage from '../Pages/UserSide/Blog/BlogPage';
 import EventPage from '../Pages/UserSide/CharityEvent/EventPage';
 import ContactUs from '../Pages/UserSide/ContactUs/ContactUs';

@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../Components/Common/Navbar";
 import Background from "../../assets/images/childrens-charity-challanges.png";
-import Volunteer from "./Volunteer/Volunteer";
+import Volunteer from "../Agent/Volunteer/Volunteer";
 import Footer from "../../Components/Common/Footer";
 
 function About() {
@@ -61,6 +61,7 @@ function About() {
       <Volunteer/>
 
       {/* <Footer/> */}
+
 
     </div>
   );
