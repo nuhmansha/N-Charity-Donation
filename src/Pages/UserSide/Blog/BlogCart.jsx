@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { FaShare } from "react-icons/fa";
 import ShareOptions from "../../../Components/Common/ShareOption";
-// import { FiMail, FiPhone } from "react-icons/fi";
-// import { useLocation } from "react-router-dom";
 
 const BlogCart = ({ blog }) => {
   console.log(blog, "blog");
@@ -25,7 +23,6 @@ const BlogCart = ({ blog }) => {
       <div className="p-4">
         <div className="flex justify-between items-center mb-2">
           <span className="bg-purple-200 text-purple-600 text-xs font-semibold px-2 py-1 rounded"></span>
-          {/* <h3 className="font-semibold text-lg">{blog.title}</h3> */}
           <FaShare
             className="text-gray-500 hover:text-gray-700 cursor-pointer"
             onClick={() => setShowShareOptions(!showShareOptions)}
