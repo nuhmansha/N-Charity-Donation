@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 import Navbar from "../../Components/Common/Navbar";
 import BackgroundImage from "../../assets/images/charity Signup background_image.png";
 
@@ -38,14 +39,22 @@ const SignupPage = () => {
             initialValues={{
               name: "",
               email: "",
-              number:"",
+              number: "",
               password: "",
               confirmPassword: "",
             }}
             validationSchema={SignupSchema}
-            onSubmit={(values) => {
-              // handle form submission
-              console.log(values);
+            onSubmit={(values, { setSubmitting }) => {
+              axios.post('http://localhost:3001/signup', values)
+                .then(response => {
+                  console.log('Signup successful:', response.data);
+                })
+                .catch(error => {
+                  console.error('There was an error signing up!', error);
+                })
+                .finally(() => {
+                  setSubmitting(false);
+                });
             }}
           >
             {({ isSubmitting }) => (
@@ -81,11 +90,11 @@ const SignupPage = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <label htmlFor="phone number" className="block text-gray-700">
+                  <label htmlFor="number" className="block text-gray-700">
                     Number
                   </label>
                   <Field
-                    type="number"
+                    type="text"
                     name="number"
                     className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                   />
