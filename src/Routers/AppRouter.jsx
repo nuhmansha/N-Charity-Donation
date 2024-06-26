@@ -10,6 +10,7 @@ import VolunteerPage from "../Pages/Agent/Volunteer/VolunteerPage";
 import BlogPage from '../Pages/UserSide/Blog/BlogPage';
 import EventPage from '../Pages/UserSide/CharityEvent/EventPage';
 import ContactUs from '../Pages/UserSide/ContactUs/ContactUs';
+import SignupOtp from '../Pages/UserSide/SignupOtp';
 
 function MainContent() {
   const location = useLocation();
@@ -22,6 +23,8 @@ function MainContent() {
       <Routes>
         <Route path="/" element={<UserHome />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/otp" element={<SignupOtp />} />
+
         <Route path="/about" element={<About />} />
         <Route path="/volunteer" element={<VolunteerPage />} />
         <Route path="/causes" element={<Causes />} />

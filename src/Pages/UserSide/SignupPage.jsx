@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Common/Navbar";
 import BackgroundImage from "../../assets/images/charity Signup background_image.png";
 
@@ -25,6 +26,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 const SignupPage = () => {
+  const Navigate = useNavigate()
   return (
     <div
       className="relative w-full h-screen bg-cover bg-center"
@@ -48,6 +50,7 @@ const SignupPage = () => {
               axios.post('http://localhost:3001/signup', values)
                 .then(response => {
                   console.log('Signup successful:', response.data);
+                  Navigate('/otp')
                 })
                 .catch(error => {
                   console.error('There was an error signing up!', error);
