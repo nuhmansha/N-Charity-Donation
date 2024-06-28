@@ -35,8 +35,10 @@ const SignupOtp = () => {
     const handleSubmit = async(e)=>{
         e.preventDefault();
         const otp = inputRef.current.map(input => input.value).join('');
+        console.log('Sending OTP:', otp);
         try {
-            const response = await axios.post('http://localhost:3001/verify-otp', { otp })
+            console.log("hai");
+            const response = await axios.post("http://localhost:3002/verifyotp", { otp },{ withCredentials: true })
             console.log('Otp verification successful',response.data);
             navigate('/login')
         } catch (error) {
@@ -70,4 +72,4 @@ const SignupOtp = () => {
   )
 }
 
-export default SignupOtp
+export default SignupOtp;

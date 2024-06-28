@@ -47,7 +47,7 @@ const SignupPage = () => {
             }}
             validationSchema={SignupSchema}
             onSubmit={(values, { setSubmitting }) => {
-              axios.post('http://localhost:3001/signup', values)
+              axios.post('http://localhost:3002/signup', values)
                 .then(response => {
                   console.log('Signup successful:', response.data);
                   Navigate('/otp')
