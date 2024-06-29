@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Common/Navbar";
 import BackgroundImage from "../../assets/images/charity Signup background_image.png";
+import axiosInstance from "../../Instance/axiosInstance";
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -47,7 +48,7 @@ const SignupPage = () => {
             }}
             validationSchema={SignupSchema}
             onSubmit={(values, { setSubmitting }) => {
-              axios.post('http://localhost:3002/signup', values)
+              axiosInstance.post('/signup', values)
                 .then(response => {
                   console.log('Signup successful:', response.data);
                   Navigate('/otp')

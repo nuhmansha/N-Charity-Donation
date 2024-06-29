@@ -1,6 +1,7 @@
 import React,{useEffect,useRef} from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios';
+
+import axiosInstance from '../../Instance/axiosInstance';
 
 const SignupOtp = () => {
     const navigate = useNavigate();
@@ -38,7 +39,7 @@ const SignupOtp = () => {
         console.log('Sending OTP:', otp);
         try {
             console.log("hai");
-            const response = await axios.post("http://localhost:3002/verifyotp", { otp },{ withCredentials: true })
+            const response = await axiosInstance.post('/verifyotp', { otp },{ withCredentials: true })
             console.log('Otp verification successful',response.data);
             navigate('/login')
         } catch (error) {
