@@ -14,8 +14,9 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
+// import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import axiosInstance from '../../Instance/axiosInstance';
 // import Navbar from '../../Components/Common/Navbar';
 // import BackgroundImage from '../../assets/images/charity_signup_background_image.png';
 
@@ -44,10 +45,11 @@ const LoginPage = () => {
             }}
             validationSchema={LoginSchema}
             onSubmit={(values, { setSubmitting }) => {
-              axios.post('http://localhost:3001/login', values)
+              axiosInstance.post('/login', values)
                 .then(response => {
                   console.log('Login successful:', response.data);
-                  navigate('/dashboard');
+                  localStorage.getItem('token',response.data.token)
+                  navigate('/');
                 })
                 .catch(error => {
                   console.error('There was an error logging in!', error);

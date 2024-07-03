@@ -11,10 +11,41 @@ import BlogPage from "./Blog/BlogPage";
 
 const UserHome = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          navigate("/login");
+          return;
+        }
+        const response = await axiosInstance.get("/user-home", {
+          headers: {
+            "x-auth-token": token,
+          },
+        });
+        setUser(response.data);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        navigate("/login");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
+  }, [navigate]);
 
   const handleViewMore = () => {
     navigate("/causes");
-  };
+  };  
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="relative bg-white">
