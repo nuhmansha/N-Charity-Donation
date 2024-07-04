@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image_1 from "../../assets/images/childrens-charity-challanges.png";
 import Causes from "./Causes/Causes";
 import Collaboration from "../../Components/Common/Collaboration";
@@ -8,44 +8,40 @@ import EventPage from "./CharityEvent/EventPage";
 import { Link } from "react-router-dom";
 import StatusSection from "../../Components/Common/StatusSection";
 import BlogPage from "./Blog/BlogPage";
+import axiosInstance from "../../Instance/axiosInstance";
 
 const UserHome = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
+      const token = localStorage.getItem("token");
+      console.log(token, "undo");
+      if (!token) {
+        navigate("/login");
+        return;
+      }
       try {
-        const token = localStorage.getItem("token");
-        if (!token) {
-          navigate("/login");
-          return;
-        }
-        const response = await axiosInstance.get("/user-home", {
+        const response = await axiosInstance.get("/", {
           headers: {
-            "x-auth-token": token,
+            Authorization: `Bearer ${token}`,
           },
         });
-        setUser(response.data);
+        setUserData(response.data);
+        console.log("User data:", response.data);
       } catch (error) {
         console.error("Error fetching user data:", error);
         navigate("/login");
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchUserData();
-  }, [navigate]);
+  }, []);
 
   const handleViewMore = () => {
     navigate("/causes");
-  };  
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  };
 
   return (
     <div className="relative bg-white">
