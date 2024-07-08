@@ -13,6 +13,7 @@ import ContactUs from '../Pages/UserSide/ContactUs/ContactUs';
 import SignupOtp from '../Pages/UserSide/SignupOtp';
 import LoginPage from '../Pages/UserSide/LoginPage';
 import PrivateRoute from './PrivateRouter';
+import VolunteerHomePage from '../Pages/Agent/Volunteer/VolunteerHomePage';
 
 function MainContent() {
   const location = useLocation();
@@ -42,6 +43,8 @@ function MainContent() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/otp" element={<SignupOtp />} />
+        <Route path="/volunteerhome" element={<VolunteerHomePage />} />
+
 
         <Route path="/" element={
           <PrivateRoute>
