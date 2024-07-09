@@ -11,10 +11,25 @@ const EventForm = ({ addEvent }) => {
   };
 
   const validationSchema = Yup.object({
-    image: Yup.string().url('Invalid URL').required('Image URL is required'),
-    title: Yup.string().required('Title is required'),
-    date: Yup.string().required('Date is required'),
-    location: Yup.string().required('Location is required')
+    image: Yup.string()
+      .url('Invalid URL')
+      .required('Image URL is required'),
+    title: Yup.string()
+      .trim()
+      .min(3, 'Title must be at least 3 characters')
+      .max(50, 'Title must be at most 50 characters')
+      .required('Title is required'),
+    date: Yup.string()
+    .matches(
+      /^(0[1-9]|[1-2][0-9]|3[0-1])-(0[1-9]|1[0-2])-\d{4}$/,
+      'Date must be in the format dd-mm-yyyy (e.g., 10-07-2024)'
+    )
+      .required('Date is required'),
+    location: Yup.string()
+      .trim()
+      .min(3, 'Location must be at least 3 characters')
+      .max(50, 'Location must be at most 50 characters')
+      .required('Location is required')
   });
 
   const onSubmit = (values, { resetForm }) => {
